@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+.root-element {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
