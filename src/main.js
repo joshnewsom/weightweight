@@ -7,17 +7,10 @@ import Footer from 'footer.component';
 
 document.addEventListener('DOMContentLoaded', function() {
 	ReactDOM.render(
-		<div style={wrapperStyle}>
+		<div className="layout-wrapper">
   		<Header/>
     	<Body/>
   		<Footer/>
   	</div>,
     document.getElementById('root'));
 });
-
-// Styles
-const wrapperStyle = {
-  height: '100%',
-  position: 'relative',
-  width: '100%'
-};

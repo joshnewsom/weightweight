@@ -9,7 +9,7 @@ body {
   overflow-x: scroll;
   overflow-y: auto;
 }
-.root-element {
+.root-element, .layout-wrapper {
   height: 100%;
   position: relative;
   width: 100%;

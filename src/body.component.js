@@ -4,7 +4,7 @@ class Body extends React.Component {
   render() {
     return (
       <section style={bodyStyle}>
-        {test}
+        Body
       </section>
     )
   }
@@ -20,14 +20,3 @@ const bodyStyle = {
   top: '50px',
   width: '100%'
 };
-
-window.addEventListener('resize', function () {
-  console.log('resize');
-});
-
-
-const test = [];
-
-for (var i = 0; i < 20; i++) {
-  test.push(<div key={i}>Test {i}</div>);
-}
