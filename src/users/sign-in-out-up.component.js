@@ -10,8 +10,9 @@ class SignInOutUp extends React.Component {
   render() {
     return (
       <div style={buttonContainerStyle}>
-        <SignInButton bird/>
-        <SignUpButton/>
+        <Button text="Sign In" onClick={onClick}/>
+        <Button text="Sign Up" onClick={onClick}/>
+        <Button text="Sign Out" onClick={onClick} hidden/>
       </div>
     )
   }
@@ -20,33 +21,23 @@ class SignInOutUp extends React.Component {
 export default SignInOutUp;
 
 
-class SignInButton extends React.Component {
+class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = {style: buttonStyle};
 
-    this.handleClick = handleClick.bind(this);
-    this.handleMouseEnter = handleMouseEnter.bind(this);
-    this.handleMouseLeave = handleMouseLeave.bind(this);
+    this.onClick = this.props.onClick.bind(this);
+    this.onMouseEnter = onMouseEnter.bind(this);
+    this.onMouseLeave = onMouseLeave.bind(this);
   }
 
   render() {
-    return (
+    if (this.props.hidden) return null;
+    else return (
       <button style={this.state.style}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        onClick={this.handleClick}>Sign In</button>
-    )
-  }
-}
-
-class SignUpButton extends SignInButton {
-  render() {
-    return (
-      <button style={this.state.style}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        onClick={this.handleClick}>Sign Up</button>
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
+        onClick={this.onClick}>{this.props.text}</button>
     )
   }
 }
@@ -71,20 +62,20 @@ buttonStyleLeft = Object.assign({}, buttonStyle, {marginRight: '15px'});
 
 
 // Hoisted Functions
-function handleMouseEnter() {
+function onMouseEnter() {
   let newStyle = Object.assign({}, this.state.style, {backgroundColor: 'white'});
   this.setState({
     style: newStyle
   });
 }
 
-function handleMouseLeave() {
+function onMouseLeave() {
   let newStyle = Object.assign({}, this.state.style, {backgroundColor: 'gray'});
   this.setState({
     style: newStyle
   });
 }
 
-function handleClick() {
+function onClick() {
   console.log('CLICK');
 }
