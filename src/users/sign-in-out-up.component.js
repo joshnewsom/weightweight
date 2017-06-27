@@ -1,17 +1,55 @@
 import React from 'react';
 
 class SignInOutUp extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {};
+  }
+
   render() {
     return (
       <div style={buttonContainerStyle}>
-        <button style={buttonStyleLeft} onClick={() => {console.log('IN');}}>Sign In</button>
-        <button style={buttonStyle} onClick={() => {console.log('UP');}}>Sign Up</button>
+        <SignInButton bird/>
+        <SignUpButton/>
       </div>
     )
   }
 }
 
 export default SignInOutUp;
+
+
+class SignInButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {style: buttonStyle};
+
+    this.handleClick = handleClick.bind(this);
+    this.handleMouseEnter = handleMouseEnter.bind(this);
+    this.handleMouseLeave = handleMouseLeave.bind(this);
+  }
+
+  render() {
+    return (
+      <button style={this.state.style}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onClick={this.handleClick}>Sign In</button>
+    )
+  }
+}
+
+class SignUpButton extends SignInButton {
+  render() {
+    return (
+      <button style={this.state.style}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onClick={this.handleClick}>Sign Up</button>
+    )
+  }
+}
 
 // Styles
 const buttonContainerStyle = {
@@ -22,8 +60,31 @@ const buttonContainerStyle = {
   top: '10%'
 },
 buttonStyle = {
-  height: '50%',
+  backgroundColor: 'gray',
+  border: '1px solid black',
+  borderRadius: '8px',
+  height: '100%',
   position: 'relative',
-  top: '25%'
+  padding: '0 25px'
 },
 buttonStyleLeft = Object.assign({}, buttonStyle, {marginRight: '15px'});
+
+
+// Hoisted Functions
+function handleMouseEnter() {
+  let newStyle = Object.assign({}, this.state.style, {backgroundColor: 'white'});
+  this.setState({
+    style: newStyle
+  });
+}
+
+function handleMouseLeave() {
+  let newStyle = Object.assign({}, this.state.style, {backgroundColor: 'gray'});
+  this.setState({
+    style: newStyle
+  });
+}
+
+function handleClick() {
+  console.log('CLICK');
+}

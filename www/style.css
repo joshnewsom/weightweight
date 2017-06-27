@@ -8,6 +8,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+button:hover {
+  cursor: pointer;
+}
 .root-element, .layout-wrapper {
   height: 100vh;
   left: 0;
