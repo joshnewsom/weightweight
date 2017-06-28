@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SignInOutUp extends React.Component {
+class AuthButtons extends React.Component {
   render() {
     return (
       <div style={buttonContainerStyle}>
@@ -12,7 +12,7 @@ class SignInOutUp extends React.Component {
   }
 }
 
-export default SignInOutUp;
+export default AuthButtons;
 
 
 class Button extends React.Component {

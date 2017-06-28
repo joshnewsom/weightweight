@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignInOutUp from './users/sign-in-out-up.component';
+import AuthButtons from './users/auth-buttons.component';
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,15 +8,10 @@ class Header extends React.Component {
     this.state = {count: 0};
   }
 
-  componentWillMount() {
-    this.props.appState.subscribe(onAppStateChange.bind(this));
-  }
-
   render() {
     return (
       <section style={headerStyle}>
-        <div>{this.state.count}</div>
-        <SignInOutUp appState={this.props.appState}/>
+        <AuthButtons appState={this.props.appState}/>
       </section>
     )
   }
@@ -35,7 +30,3 @@ const headerStyle = {
   width: '100%',
   zIndex: '10'
 };
-
-function onAppStateChange(appState) {
-  this.setState({count: ++this.state.count})
-}
