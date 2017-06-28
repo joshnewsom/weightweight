@@ -1,18 +1,12 @@
 import React from 'react';
 
 class SignInOutUp extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
-
   render() {
     return (
       <div style={buttonContainerStyle}>
-        <Button text="Sign In" onClick={onClick}/>
-        <Button text="Sign Up" onClick={onClick}/>
-        <Button text="Sign Out" onClick={onClick} hidden/>
+        <Button text="Sign In" onClick={showForm} appState={this.props.appState}/>
+        <Button text="Sign Up" onClick={showForm} appState={this.props.appState}/>
+        <Button text="Sign Out" onClick={() => {}} appState={this.props.appState} hidden/>
       </div>
     )
   }
@@ -41,6 +35,7 @@ class Button extends React.Component {
     )
   }
 }
+
 
 // Styles
 const buttonContainerStyle = {
@@ -76,6 +71,11 @@ function onMouseLeave() {
   });
 }
 
-function onClick() {
-  console.log('CLICK');
+function showForm() {
+  let appState = this.props.appState;
+  if (appState.showForm === this.props.text) {
+    appState.setState({showForm: null});
+  } else {
+    appState.setState({showForm: this.props.text});
+  }
 }
