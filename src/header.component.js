@@ -4,8 +4,7 @@ import AuthButtons from './users/auth-buttons.component';
 
 class Header extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {count: 0};
+    super(props);;
   }
 
   render() {

@@ -5,7 +5,8 @@ const path = require('path'),
     username: String,
     password: String,
     firstName: String,
-    lastName: String
+    lastName: String,
+    weightRecords: Object
   })
 
 mongoose.model('User', UserSchema)

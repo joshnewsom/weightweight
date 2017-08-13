@@ -72,10 +72,5 @@ function onMouseLeave() {
 }
 
 function showForm() {
-  let appState = this.props.appState;
-  if (appState.showForm === this.props.text) {
-    appState.setState({showForm: null});
-  } else {
-    appState.setState({showForm: this.props.text});
-  }
+  this.props.appState.set({showForm: this.props.text})
 }
